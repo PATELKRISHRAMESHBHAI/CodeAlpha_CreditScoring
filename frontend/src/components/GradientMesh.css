@@ -15,53 +15,22 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.mesh-blob {
+/* One color, one glow — Signal Blue only, on the flat Porcelain page background. */
+.mesh-glow {
   position: absolute;
+  top: -280px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 900px;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-}
-
-.mesh-blob-a {
-  width: 620px;
-  height: 620px;
-  top: -220px;
-  left: -180px;
-  background: radial-gradient(circle, #0057ff, transparent 70%);
-}
-
-.mesh-blob-b {
-  width: 560px;
-  height: 560px;
-  top: -160px;
-  right: -220px;
-  background: radial-gradient(circle, #6fa2ff, transparent 70%);
-  opacity: 0.4;
-}
-
-.mesh-blob-c {
-  width: 520px;
-  height: 520px;
-  bottom: -200px;
-  left: 10%;
-  background: radial-gradient(circle, #002e99, transparent 70%);
-  opacity: 0.35;
-}
-
-.mesh-blob-d {
-  width: 460px;
-  height: 460px;
-  bottom: -160px;
-  right: 5%;
-  background: radial-gradient(circle, #ffd9a0, transparent 70%);
-  opacity: 0.22;
+  filter: blur(120px);
+  opacity: 0.16;
+  background: radial-gradient(circle, var(--color-primary), transparent 70%);
 }
 
 @media (prefers-color-scheme: dark) {
-  .mesh-blob {
-    opacity: 0.28;
-  }
-  .mesh-blob-d {
-    opacity: 0.12;
+  .mesh-glow {
+    opacity: 0.22;
   }
 }

@@ -92,7 +92,7 @@ export default function Home() {
                 <motion.path
                   d="M10 65 A50 50 0 0 1 110 65"
                   fill="none"
-                  stroke="url(#gaugeGrad)"
+                  stroke="var(--color-success)"
                   strokeWidth="10"
                   strokeLinecap="round"
                   strokeDasharray="157"
@@ -100,12 +100,6 @@ export default function Home() {
                   animate={{ strokeDashoffset: 157 - 157 * 0.155 }}
                   transition={{ duration: 1.4, delay: 0.6, ease: "easeOut" }}
                 />
-                <defs>
-                  <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#16a34a" />
-                    <stop offset="100%" stopColor="#0057ff" />
-                  </linearGradient>
-                </defs>
               </svg>
               <div className="score-card-value">
                 <span>15.5%</span>
