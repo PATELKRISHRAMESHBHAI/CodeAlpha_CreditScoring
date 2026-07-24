@@ -49,7 +49,7 @@
 }
 
 .nav-link.active {
-  color: white;
+  color: var(--color-on-primary);
 }
 
 .nav-underline {
@@ -58,7 +58,7 @@
   background: var(--color-primary);
   border-radius: 999px;
   z-index: -1;
-  box-shadow: 0 4px 14px rgba(0, 87, 255, 0.35);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 35%, transparent);
 }
 
 .nav-toggle {
@@ -101,7 +101,7 @@
 }
 
 .mobile-nav-link.active {
-  color: var(--color-primary-dark);
+  color: var(--color-accent);
 }
 
 @media (max-width: 760px) {

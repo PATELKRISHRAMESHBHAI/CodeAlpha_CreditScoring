@@ -5,9 +5,12 @@
   --color-border: #e5e2da;
   --color-text: #1a2130;
   --color-text-muted: #5c6270;
+  /* Primary = solid-fill interactive elements (buttons, active nav pill).
+     Accent  = text/icon/data highlights. Light theme: Signal Blue is primary. */
   --color-primary: #0057ff;
   --color-primary-dark: #0044cc;
   --color-primary-light: #e6edff;
+  --color-on-primary: #ffffff;
   --color-accent: #0044cc;
   --color-accent-light: #e6edff;
   --color-danger: #dc2626;
@@ -22,7 +25,8 @@
   --radius-lg: 28px;
   --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.06);
   --shadow-lg: 0 4px 12px rgba(16, 24, 40, 0.08), 0 16px 40px rgba(16, 24, 40, 0.1);
-  --shadow-glow: 0 0 0 1px rgba(0, 87, 255, 0.08), 0 8px 30px rgba(0, 87, 255, 0.12);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 8%, transparent),
+    0 8px 30px color-mix(in srgb, var(--color-primary) 12%, transparent);
 
   --glass-bg: rgba(255, 255, 255, 0.55);
   --glass-bg-strong: rgba(255, 255, 255, 0.72);
@@ -44,10 +48,13 @@
     --color-border: #262f42;
     --color-text: #e7ecf5;
     --color-text-muted: #94a3b8;
-    --color-primary: #4c8dff;
-    --color-primary-dark: #8ab4ff;
-    --color-primary-light: #132548;
-    --color-accent: #8ab4ff;
+    /* Reversed for dark mode: Porcelain becomes primary (solid-fill CTAs),
+       Signal Blue becomes the secondary/accent color (text, icons, data). */
+    --color-primary: #f8f7f4;
+    --color-primary-dark: #d9d7cd;
+    --color-primary-light: rgba(248, 247, 244, 0.1);
+    --color-on-primary: #0b0f19;
+    --color-accent: #4c8dff;
     --color-accent-light: #132548;
     --color-danger: #f87171;
     --color-danger-bg: #2a1516;
@@ -57,7 +64,6 @@
     --color-success-bg: #10241a;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
-    --shadow-glow: 0 0 0 1px rgba(76, 141, 255, 0.14), 0 8px 30px rgba(76, 141, 255, 0.12);
 
     --glass-bg: rgba(22, 29, 44, 0.55);
     --glass-bg-strong: rgba(22, 29, 44, 0.75);
@@ -139,8 +145,8 @@ button, input, select {
 
 .btn-primary {
   background: var(--color-primary);
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 87, 255, 0.28);
+  color: var(--color-on-primary);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-primary) 28%, transparent);
 }
 
 .btn-primary:hover {
@@ -157,7 +163,7 @@ button, input, select {
 
 ::selection {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
 }
 
 ::-webkit-scrollbar {

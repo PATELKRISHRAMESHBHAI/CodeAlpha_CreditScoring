@@ -25,7 +25,7 @@
   letter-spacing: 0.09em;
   font-size: 0.74rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent);
   margin: 0 0 16px;
 }
 
@@ -41,7 +41,7 @@
 
 .hero-highlight {
   font-style: italic;
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .hero-sub {
@@ -167,7 +167,7 @@
 .score-card-bar i {
   display: block;
   height: 100%;
-  background: var(--color-primary);
+  background: var(--color-accent);
   border-radius: 999px;
 }
 
@@ -236,7 +236,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent);
   box-shadow: var(--shadow);
 }
 

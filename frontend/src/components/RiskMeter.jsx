@@ -9,7 +9,7 @@ const RISK_COLOR_VAR = {
 };
 
 export default function RiskMeter({ probability, riskLevel }) {
-  const color = RISK_COLOR_VAR[riskLevel] || "var(--color-primary)";
+  const color = RISK_COLOR_VAR[riskLevel] || "var(--color-accent)";
 
   return (
     <div className="risk-meter-wrap">
