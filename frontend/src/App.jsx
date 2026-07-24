@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Loader from "./components/Loader.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import GradientMesh from "./components/GradientMesh.jsx";
 import Home from "./pages/Home.jsx";
 import Assessment from "./pages/Assessment.jsx";
 
@@ -34,6 +35,7 @@ function App() {
       <AnimatePresence>{isLoading && <Loader key="loader" />}</AnimatePresence>
       {!isLoading && (
         <>
+          <GradientMesh />
           <Navbar />
           <main>
             <AnimatedRoutes />

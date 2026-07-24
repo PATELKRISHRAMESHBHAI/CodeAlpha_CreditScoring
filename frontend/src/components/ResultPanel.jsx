@@ -5,7 +5,7 @@ import "./ResultPanel.css";
 
 export default function ResultPanel({ result }) {
   return (
-    <aside className="result-panel">
+    <aside className="result-panel glass">
       <AnimatePresence mode="wait">
         {!result && (
           <motion.div

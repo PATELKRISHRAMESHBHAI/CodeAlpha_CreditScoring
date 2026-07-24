@@ -19,7 +19,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="container navbar-inner">
+      <div className="navbar-inner glass">
         <NavLink to="/" className="brand" onClick={() => setOpen(false)}>
           <motion.img
             src={logo}
@@ -62,7 +62,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            className="mobile-nav"
+            className="mobile-nav glass"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

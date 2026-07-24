@@ -11,14 +11,16 @@ export default function Footer() {
       transition={{ duration: 0.5 }}
     >
       <div className="container">
-        <p>
-          Built for the <strong>CodeAlpha Machine Learning Internship</strong> — Task 1: Credit
-          Scoring Model.
-        </p>
-        <p className="disclaimer">
-          ⚠️ This tool provides ML-based estimates for educational purposes only and is{" "}
-          <strong>not</strong> a real credit or lending decision.
-        </p>
+        <div className="site-footer-card glass">
+          <p>
+            Built for the <strong>CodeAlpha Machine Learning Internship</strong> — Task 1: Credit
+            Scoring Model.
+          </p>
+          <p className="disclaimer">
+            ⚠️ This tool provides ML-based estimates for educational purposes only and is{" "}
+            <strong>not</strong> a real credit or lending decision.
+          </p>
+        </div>
       </div>
     </motion.footer>
   );

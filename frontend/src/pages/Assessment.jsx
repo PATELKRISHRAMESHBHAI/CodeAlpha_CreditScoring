@@ -87,7 +87,7 @@ export default function Assessment() {
         </motion.div>
 
         <div className="assessment-layout">
-          <form className="assessment-form" onSubmit={handleSubmit}>
+          <form className="assessment-form glass" onSubmit={handleSubmit}>
             {form.sections.map((section) => (
               <div className="form-section" key={section.name}>
                 <h2 className="form-section-title">{section.name}</h2>

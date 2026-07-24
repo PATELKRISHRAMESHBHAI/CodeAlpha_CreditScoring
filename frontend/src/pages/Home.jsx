@@ -2,32 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import PageTransition from "../components/PageTransition.jsx";
-import AnimatedBlobs from "../components/AnimatedBlobs.jsx";
 import { fetchCreditInfo } from "../api/client.js";
 import "./Home.css";
 
-const HEADING = [
-  { text: "Know", accent: false },
-  { text: "Your", accent: false },
-  { text: "Credit", accent: true },
-  { text: "Risk,", accent: true },
-  { text: "Instantly", accent: false },
-];
-
 const STEPS = [
-  { title: "Enter Your Details", desc: "Fill in your credit usage, payment history, and income on the assessment page." },
-  { title: "AI Analyzes Your Profile", desc: "A trained classifier (Logistic Regression, Decision Tree, or Random Forest — whichever scored best) evaluates the inputs." },
-  { title: "Get Instant Results", desc: "See your predicted risk tier, a probability score, and the top factors behind it, right in your browser." },
+  { title: "Enter your details", desc: "Credit usage, payment history, and income — ten fields, three minutes." },
+  { title: "The model reads your profile", desc: "Whichever of the three trained classifiers scored best on held-out data evaluates the inputs." },
+  { title: "See the reasoning, not just a number", desc: "A risk tier, a probability, and the specific factors that moved the needle." },
 ];
-
-const wordVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.15 + i * 0.07, duration: 0.5, ease: "easeOut" },
-  }),
-};
 
 export default function Home() {
   const [info, setInfo] = useState(null);
@@ -42,111 +24,131 @@ export default function Home() {
       .catch(() => setStatus("error"));
   }, []);
 
-  const stats = info
-    ? [
-        { value: `${info.dataset_size.toLocaleString()}+`, label: "Records Analyzed" },
-        { value: "3", label: "ML Models Compared" },
-        { value: `${Math.round(info.roc_auc * 100)}%`, label: "Model Accuracy (ROC-AUC)" },
-      ]
-    : [];
-
   return (
     <PageTransition>
-      <section className="hero">
-        <AnimatedBlobs />
-        <div className="container">
-          <h1>
-            {HEADING.map((w, i) => (
-              <motion.span
-                key={w.text}
-                className={"word" + (w.accent ? " word-accent" : "")}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={wordVariants}
-              >
-                {w.text}
-              </motion.span>
-            ))}
-          </h1>
+      <section className="hero container">
+        <div className="hero-copy">
+          <motion.p
+            className="eyebrow"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            CodeAlpha Machine Learning Internship · Task 1
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08 }}
+          >
+            A second opinion on <span className="hero-highlight">credit risk</span>, before you
+            need one.
+          </motion.h1>
+
           <motion.p
             className="hero-sub"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.5 }}
+            transition={{ duration: 0.55, delay: 0.16 }}
           >
-            A machine-learning model trained on historical credit data to estimate the likelihood
-            of serious delinquency from an applicant's credit usage, payment history, and income.
+            CreditIQ estimates the likelihood of serious delinquency from an applicant's credit
+            usage, payment history, and income — and shows its work, instead of just handing you
+            a number.
           </motion.p>
 
-          {status === "ready" && (
-            <motion.div
-              className="hero-stats"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-            >
-              {stats.map((s) => (
-                <div className="hero-stat" key={s.label}>
-                  <span className="hero-stat-value">{s.value}</span>
-                  <span className="hero-stat-label">{s.label}</span>
-                </div>
-              ))}
-            </motion.div>
-          )}
-          {status === "error" && (
-            <p className="cards-status">
-              Live model stats unavailable — is the Flask backend running?
-            </p>
-          )}
+          <motion.div
+            className="hero-actions"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.24 }}
+          >
+            <Link to="/assessment" className="btn btn-primary">
+              Run an assessment
+            </Link>
+            {status === "ready" && (
+              <span className="hero-trust">
+                Trained on <strong>{info.dataset_size.toLocaleString()}</strong> historical records ·{" "}
+                <strong>{Math.round(info.roc_auc * 100)}%</strong> ROC-AUC
+              </span>
+            )}
+          </motion.div>
         </div>
-      </section>
 
-      <section className="container feature-section">
         <motion.div
-          initial={{ opacity: 0, y: 26 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.5 }}
+          className="hero-visual"
+          initial={{ opacity: 0, y: 24, rotate: -2 }}
+          animate={{ opacity: 1, y: 0, rotate: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         >
-          <Link to="/assessment" className="feature-card">
-            <div className="feature-card-icon">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2 4 5v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V5z" />
-                <path d="M7 12.5a5 5 0 0 1 10 0" />
-                <path d="M12 12.5 15 9.5" />
-                <circle cx="12" cy="12.5" r="0.9" fill="currentColor" stroke="none" />
+          <div className="score-card glass">
+            <div className="score-card-head">
+              <span className="score-card-dot" />
+              Sample assessment
+            </div>
+            <div className="score-card-gauge">
+              <svg viewBox="0 0 120 70" width="180" height="105">
+                <path d="M10 65 A50 50 0 0 1 110 65" fill="none" stroke="var(--color-border)" strokeWidth="10" strokeLinecap="round" />
+                <motion.path
+                  d="M10 65 A50 50 0 0 1 110 65"
+                  fill="none"
+                  stroke="url(#gaugeGrad)"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  strokeDasharray="157"
+                  initial={{ strokeDashoffset: 157 }}
+                  animate={{ strokeDashoffset: 157 - 157 * 0.155 }}
+                  transition={{ duration: 1.4, delay: 0.6, ease: "easeOut" }}
+                />
+                <defs>
+                  <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#16a34a" />
+                    <stop offset="100%" stopColor="#0057ff" />
+                  </linearGradient>
+                </defs>
               </svg>
+              <div className="score-card-value">
+                <span>15.5%</span>
+                <small>predicted risk</small>
+              </div>
             </div>
-            <div className="feature-card-body">
-              <h2>Check Your Credit Risk</h2>
-              <p>Enter your financial details and get an instant, explained risk assessment.</p>
+            <div className="score-card-tag">Low Risk · Good credit standing</div>
+            <div className="score-card-factors">
+              <div className="score-card-factor-row">
+                <span>Revolving utilization</span>
+                <span className="score-card-bar"><i style={{ width: "92%" }} /></span>
+              </div>
+              <div className="score-card-factor-row">
+                <span>Payment history</span>
+                <span className="score-card-bar"><i style={{ width: "58%" }} /></span>
+              </div>
             </div>
-            <span className="feature-card-cta">
-              Get Started
-              <span className="feature-card-cta-arrow">→</span>
-            </span>
-          </Link>
+          </div>
         </motion.div>
       </section>
 
-      <section className="container about-section">
-        <div className="section-heading">
-          <h2>How It Works</h2>
+      <section className="container timeline-section">
+        <div className="timeline-heading">
+          <h2>How it works</h2>
+          <p>No sign-up, no waiting room — a form, a model, an answer.</p>
         </div>
-        <div className="about-grid">
+        <div className="timeline">
           {STEPS.map((step, i) => (
             <motion.div
-              className="about-item"
+              className="timeline-item"
               key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: i * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: i * 0.12, duration: 0.5 }}
             >
-              <span className="about-step">{i + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
+              <div className="timeline-marker">
+                <span>{i + 1}</span>
+              </div>
+              <div className="timeline-body">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
