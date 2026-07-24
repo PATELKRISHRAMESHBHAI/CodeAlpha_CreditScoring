@@ -19,7 +19,7 @@ FORM = {
                     "label": "Revolving Credit Utilization",
                     "help": "Total balance on credit cards / total credit limit",
                     "type": "number",
-                    "step": "0.01",
+                    "step": "0.0001",
                 },
                 {
                     "name": "NumberOfOpenCreditLinesAndLoans",
@@ -73,7 +73,7 @@ FORM = {
                     "label": "Debt Ratio",
                     "help": "Monthly debt payments / monthly gross income",
                     "type": "number",
-                    "step": "0.01",
+                    "step": "0.0001",
                 },
                 {
                     "name": "age",
