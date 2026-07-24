@@ -1,0 +1,163 @@
+{
+  "model_key": "credit",
+  "best_model": "RandomForest",
+  "feature_names": [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "age",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "DebtRatio",
+    "MonthlyIncome",
+    "NumberOfOpenCreditLinesAndLoans",
+    "NumberOfTimes90DaysLate",
+    "NumberRealEstateLoansOrLines",
+    "NumberOfTime60-89DaysPastDueNotWorse",
+    "NumberOfDependents",
+    "TotalPastDueEvents",
+    "DebtToIncomeFlag"
+  ],
+  "feature_ranges": {
+    "RevolvingUtilizationOfUnsecuredLines": [
+      0.0,
+      1.3663
+    ],
+    "age": [
+      21.0,
+      109.0
+    ],
+    "NumberOfTime30-59DaysPastDueNotWorse": [
+      0.0,
+      13.0
+    ],
+    "DebtRatio": [
+      0.0,
+      6186.01
+    ],
+    "MonthlyIncome": [
+      0.0,
+      3008750.0
+    ],
+    "NumberOfOpenCreditLinesAndLoans": [
+      0.0,
+      58.0
+    ],
+    "NumberOfTimes90DaysLate": [
+      0.0,
+      17.0
+    ],
+    "NumberRealEstateLoansOrLines": [
+      0.0,
+      54.0
+    ],
+    "NumberOfTime60-89DaysPastDueNotWorse": [
+      0.0,
+      11.0
+    ],
+    "NumberOfDependents": [
+      0.0,
+      20.0
+    ]
+  },
+  "sample_record": {
+    "RevolvingUtilizationOfUnsecuredLines": 0.1542,
+    "age": 52.0,
+    "NumberOfTime30-59DaysPastDueNotWorse": 0.0,
+    "DebtRatio": 0.3665,
+    "MonthlyIncome": 5400.0,
+    "NumberOfOpenCreditLinesAndLoans": 8.0,
+    "NumberOfTimes90DaysLate": 0.0,
+    "NumberRealEstateLoansOrLines": 1.0,
+    "NumberOfTime60-89DaysPastDueNotWorse": 0.0,
+    "NumberOfDependents": 0.0,
+    "TotalPastDueEvents": 0.0,
+    "DebtToIncomeFlag": 0.0
+  },
+  "feature_importances": {
+    "RevolvingUtilizationOfUnsecuredLines": 0.2861,
+    "age": 0.0603,
+    "NumberOfTime30-59DaysPastDueNotWorse": 0.09,
+    "DebtRatio": 0.0548,
+    "MonthlyIncome": 0.0442,
+    "NumberOfOpenCreditLinesAndLoans": 0.0389,
+    "NumberOfTimes90DaysLate": 0.101,
+    "NumberRealEstateLoansOrLines": 0.0247,
+    "NumberOfTime60-89DaysPastDueNotWorse": 0.0482,
+    "NumberOfDependents": 0.0125,
+    "TotalPastDueEvents": 0.2343,
+    "DebtToIncomeFlag": 0.005
+  },
+  "dataset_size": 150000,
+  "metrics": {
+    "accuracy": 0.8307,
+    "precision": 0.2416,
+    "recall": 0.7172,
+    "f1_score": 0.3615,
+    "roc_auc": 0.8638,
+    "cv_roc_auc_mean": 0.8573,
+    "confusion_matrix": [
+      [
+        23482,
+        4513
+      ],
+      [
+        567,
+        1438
+      ]
+    ]
+  },
+  "all_results": {
+    "LogisticRegression": {
+      "accuracy": 0.7992,
+      "precision": 0.2138,
+      "recall": 0.7486,
+      "f1_score": 0.3326,
+      "roc_auc": 0.858,
+      "cv_roc_auc_mean": 0.8525,
+      "confusion_matrix": [
+        [
+          22474,
+          5521
+        ],
+        [
+          504,
+          1501
+        ]
+      ]
+    },
+    "DecisionTree": {
+      "accuracy": 0.7989,
+      "precision": 0.216,
+      "recall": 0.7641,
+      "f1_score": 0.3368,
+      "roc_auc": 0.8542,
+      "cv_roc_auc_mean": 0.8494,
+      "confusion_matrix": [
+        [
+          22435,
+          5560
+        ],
+        [
+          473,
+          1532
+        ]
+      ]
+    },
+    "RandomForest": {
+      "accuracy": 0.8307,
+      "precision": 0.2416,
+      "recall": 0.7172,
+      "f1_score": 0.3615,
+      "roc_auc": 0.8638,
+      "cv_roc_auc_mean": 0.8573,
+      "confusion_matrix": [
+        [
+          23482,
+          4513
+        ],
+        [
+          567,
+          1438
+        ]
+      ]
+    }
+  }
+}
