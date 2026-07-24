@@ -1,14 +1,8 @@
-import { motion } from "framer-motion";
 import "./GradientMesh.css";
 
+// Flat, single-colored page background (Porcelain / dark navy) plus a faint
+// grain texture. Signal Blue stays out of the background entirely — it's
+// reserved for foreground/accent elements, not blended in behind them.
 export default function GradientMesh() {
-  return (
-    <div className="mesh-field" aria-hidden="true">
-      <motion.span
-        className="mesh-glow"
-        animate={{ x: [0, 40, -30, 0], y: [0, -30, 20, 0] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
-  );
+  return <div className="mesh-field" aria-hidden="true" />;
 }
