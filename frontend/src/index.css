@@ -1,0 +1,115 @@
+:root {
+  --color-bg: #f8f7f4;
+  --color-bg-alt: #f0efe9;
+  --color-surface: #ffffff;
+  --color-border: #e5e2da;
+  --color-text: #1a2130;
+  --color-text-muted: #5c6270;
+  --color-primary: #0057ff;
+  --color-primary-dark: #0044cc;
+  --color-primary-light: #e6edff;
+  --color-accent: #0044cc;
+  --color-accent-light: #e6edff;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-success: #16a34a;
+  --color-success-bg: #f0fdf4;
+
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 4px 12px rgba(16, 24, 40, 0.08), 0 16px 40px rgba(16, 24, 40, 0.1);
+  --shadow-glow: 0 0 0 1px rgba(0, 87, 255, 0.08), 0 8px 30px rgba(0, 87, 255, 0.12);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b0f19;
+    --color-bg-alt: #0f1420;
+    --color-surface: #161d2c;
+    --color-border: #262f42;
+    --color-text: #e7ecf5;
+    --color-text-muted: #94a3b8;
+    --color-primary: #4c8dff;
+    --color-primary-dark: #8ab4ff;
+    --color-primary-light: #132548;
+    --color-accent: #8ab4ff;
+    --color-accent-light: #132548;
+    --color-danger: #f87171;
+    --color-danger-bg: #2a1516;
+    --color-warning: #fbbf24;
+    --color-warning-bg: #2a2211;
+    --color-success: #4ade80;
+    --color-success-bg: #10241a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 0 1px rgba(76, 141, 255, 0.14), 0 8px 30px rgba(76, 141, 255, 0.12);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
